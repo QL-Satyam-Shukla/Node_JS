@@ -1,5 +1,22 @@
 module.exports = {
   SUCCESS: "You did a successful operation",
   FAILURE: "Your operation failed",
-  LOGOUT:  "Your Logout Successfully"
+  LOGOUT:  "Your Logout Successfully",
+  USER_FOUND:"User found successfully",
+  USER_NOT_FOUND:"User Not Found",
+  INVALID_CRED:"Ivvalid Credincials",
+  LOGIN_SUCCESS:"User Login Successfully",
+  USER_DETAILS:"User Details Fetch Successfully",
+  AUTH_ERROR:"Auth Error",
+  EMAIL_EXIS:"Email Already Exists",
+  NOT_ADDED:"Something Went Wrong User Not Added",
+  USER_ADDED:"User Added Successfully",
+  USER_NOT_UPDATE:"User Already Updated",
+  USER_UPDATE:"User Update Successfully",
+  USER_NOT_DELETE:"User Already Deleted",
+  USER_DELETE:"User Delete Successfully",
+  NOT_EXIS:"User Not Exists",
+  PASS_EXIST:"Please Try with Different Password",
+  PASS_CHANGED:"Password changed now you can login with the updated password",
+  PASS_NOT_CHANGED:"Password not changed"
 };
