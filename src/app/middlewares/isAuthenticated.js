@@ -10,7 +10,8 @@ module.exports = (request, response, next) => {
       return responder(response, false, "AUTH_ERROR", {}, 400);
     }
     request.user = {
-      id: decoded.id,
+      id: decoded?.id,
+      role:decoded?.role
     };
     next();
   } catch (error) {

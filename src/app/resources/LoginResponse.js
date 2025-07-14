@@ -6,7 +6,7 @@ class LoginResponse extends Resource {
       id: this.user.id || '',
       name: this.user.name || '',
       role: this.user.role || '',
-      tokens: {access: this.token},
+      tokens: {access: this.tokens.accessToken,refresh:this.tokens.refreshToken},
     }
   }
 }

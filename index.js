@@ -40,9 +40,9 @@ sequelize
     console.log("error", err.message);
   });
 
-  // sequelize.sync({ alter: true }) // or force: true for development (but it drops tables)
-  // .then(() => {
-  //   console.log("All models were synchronized successfully.");
-  // })
-  // .catch((err) => console.error("Failed to sync DB:", err));
+  sequelize.sync({ alter: false }) // or force: true for development (but it drops tables)
+  .then(() => {
+    console.log("All models were synchronized successfully.");
+  })
+  .catch((err) => console.error("Failed to sync DB:", err));
 

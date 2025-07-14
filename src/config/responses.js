@@ -18,5 +18,8 @@ module.exports = {
   NOT_EXIS:"User Not Exists",
   PASS_EXIST:"Please Try with Different Password",
   PASS_CHANGED:"Password changed now you can login with the updated password",
-  PASS_NOT_CHANGED:"Password not changed"
+  PASS_NOT_CHANGED:"Password not changed",
+  NOT_RIGTHS:"You Have Not Enough Rights",
+  BLOG_CREATED:"Blog created successfully",
+  BLOIG_NOT_CREATED:"Error while creating blog",
 };

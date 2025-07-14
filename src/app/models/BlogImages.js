@@ -1,19 +1,13 @@
 const { DataTypes, Model } = require("sequelize");
 const sequelize = require("../../config/database");
-
+const Blog = require("../models/Blog");
 class BlogImage extends Model {}
 
 BlogImage.init(
   {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    image_url: {
-      type: DataTypes.STRING(255),
-      allowNull: false,
-    },
+    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+    blog_id: { type: DataTypes.STRING, allowNull: false },
+    image_url: { type: DataTypes.ARRAY(DataTypes.STRING), allowNull: false },
   },
   {
     sequelize,
@@ -22,7 +16,13 @@ BlogImage.init(
     timestamps: true,
     createdAt: "uploaded_at",
     updatedAt: false,
-  }
+  },
+
+  (Blog.associate = (models) => {
+    Blog.belongsTo(models.Blog, {
+      foreignKey: "blog_id",
+    });
+  })
 );
 
 module.exports = BlogImage;

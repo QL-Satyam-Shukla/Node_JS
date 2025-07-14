@@ -42,6 +42,14 @@ User.init(
     createdAt: "created_at",
     updatedAt: false,
   }
+  
 );
+
+ User.associate = (models) => {
+    User.hasMany(models.Blog, {
+      foreignKey: "author_id",
+      as: "blogs",
+    });
+  };
 
 module.exports = User;

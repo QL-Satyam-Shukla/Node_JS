@@ -39,7 +39,7 @@ exports.UpdateUser = async (request, response) => {
     }
     return responder(response, false, "USER_UPDATE", {}, 400);
   } catch (err) {
-    console.log(err)
+    console.log(err);
     return responder(response, false, "FAILURE", {}, 400);
   }
 };
