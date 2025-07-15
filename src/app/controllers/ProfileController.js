@@ -3,10 +3,9 @@ const ProfileServices = require("../services/ProfileServices");
 const ProfileResponse = require("../resources/ProfileResponse");
 
 exports.profileDetails = async (request, response, next) => {
-  console.log("Request in profile", request.user.id);
-  console.log("Request in profile", request.user.role);
+  const {id}=request.user;
   try {
-    const user = await ProfileServices.getUserByID(request.user.id);
+    const user = await ProfileServices.getUserByID(id);
     console.log("userprofile", user);
     if (!user) {
       return responder(response, false, "USER_NOT_FOUND", {}, 400);

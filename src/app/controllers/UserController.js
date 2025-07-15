@@ -9,7 +9,7 @@ exports.RegisterUser = async (request, response) => {
 
     const emailExists = await UserServices.GetUserByEmail(email);
     if (emailExists) {
-      return responder(response, false, "EMAIL_EXIS", {}, 400);
+      return responder(response, false, "EMAIL_EXIS", {}, 201);
     }
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = await UserServices.Register(name, email, hashedPassword, role);

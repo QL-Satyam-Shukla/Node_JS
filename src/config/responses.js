@@ -22,4 +22,5 @@ module.exports = {
   NOT_RIGTHS:"You Have Not Enough Rights",
   BLOG_CREATED:"Blog created successfully",
   BLOIG_NOT_CREATED:"Error while creating blog",
+  BLOG_FETCHED:"BLog fetched Successfully",
 };

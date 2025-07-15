@@ -6,6 +6,7 @@ class ProfileResponse extends Resource {
       id: this.id || '',
       name: this.name || '',
       role: this.role || '',
+      email:this.email || "",
       account_status:this.account_status || '',
     }
   }

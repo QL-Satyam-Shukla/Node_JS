@@ -4,3 +4,5 @@ module.exports=(req,res,next)=>{
     console.log(req.method,req.hostname, req.path, req.time,req.body);
     next();
 }
+
+

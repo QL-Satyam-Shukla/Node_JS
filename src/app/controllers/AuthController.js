@@ -15,7 +15,6 @@ exports.login = async (request, response) => {
       return responder(response, false, "USER_NOT_FOUND", {}, 400);
     }
     const passwordMatched = await bcrypt.compare(password, user.password);
-    console.log(passwordMatched);
     if (!passwordMatched) {
       responder(response, false, INVALID_CRED, {}, 400);
     }

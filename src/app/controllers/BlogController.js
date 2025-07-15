@@ -6,10 +6,7 @@ exports.generateBlog = async (request, response) => {
   try {
     const { title, content, image_url, summary, tags, read_time, category } =
       request.body;
-    const { id, role } = request.user;
-    if (!role == "author") {
-      return responder(response, false, "NOT_RIGTHS", {}, 409);
-    }
+    const { role, id } = request.user;
     const createdBlog = await BlogServices.createNewBlog(
       title,
       content,
@@ -37,11 +34,11 @@ exports.generateBlog = async (request, response) => {
   }
 };
 
-exports.getAllBlogs = async(request, response, next) => {
+exports.getAllBlogs = async (request, response, next) => {
   try {
     const allblog = await BlogServices.getAllBlogs();
-    return responder(response, true, "BLOG_CREATED", allblog);
+    return responder(response, false, "BLOG_FETCHED", allblog);
   } catch (err) {
-    console.log(err);
+    return responder(response, false, "FALIURE", {}, 400);
   }
 };

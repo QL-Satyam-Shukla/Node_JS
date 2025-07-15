@@ -6,7 +6,7 @@ module.exports = (request, response, next) => {
     const token = request.headers.authorization.split(" ")[1];
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     console.log("deco",decoded)
-    if (!decoded.id) {
+    if (!decoded) {
       return responder(response, false, "AUTH_ERROR", {}, 400);
     }
     request.user = {
