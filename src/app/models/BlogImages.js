@@ -7,7 +7,10 @@ BlogImage.init(
   {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     blog_id: { type: DataTypes.STRING, allowNull: false },
-    image_url: { type: DataTypes.ARRAY(DataTypes.STRING), allowNull: false },
+    image_url: {
+      type: DataTypes.JSON,
+      allowNull: false,
+    },
   },
   {
     sequelize,

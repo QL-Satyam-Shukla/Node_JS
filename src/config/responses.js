@@ -23,4 +23,5 @@ module.exports = {
   BLOG_CREATED:"Blog created successfully",
   BLOIG_NOT_CREATED:"Error while creating blog",
   BLOG_FETCHED:"BLog fetched Successfully",
+  PROFILE_NOT_CREATED:"Error while creating profile"
 };

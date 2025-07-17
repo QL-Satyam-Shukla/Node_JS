@@ -5,7 +5,17 @@ const bcrypt = require("bcrypt");
 //Register new user
 exports.RegisterUser = async (request, response) => {
   try {
-    const { name, email, password, role } = request.body;
+    const {
+      name,
+      email,
+      password,
+      role,
+      bio,
+      profile_picture_url,
+      website,
+      location,
+      birthdate,
+    } = request.body;
 
     const emailExists = await UserServices.GetUserByEmail(email);
     if (emailExists) {
@@ -13,8 +23,15 @@ exports.RegisterUser = async (request, response) => {
     }
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = await UserServices.Register(name, email, hashedPassword, role);
-
-    if (!user) {
+      const userProfile = await UserServices.createUserProfile(
+      bio,
+      profile_picture_url,
+      website,
+      location,
+      birthdate,
+      user_id=user.id,
+    );
+    if (!user && !userProfile) {
       return responder(response, false, "NOT_ADDED", {}, 400);
     }
     return responder(response, true, "USER_ADDED", {}, 200);

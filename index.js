@@ -8,13 +8,13 @@ const http = require("http");
 const app = express();
 const server = http.createServer(app);
 const port = 4000;
+require("./association");
 
 app.use(express.json());
 app.use(apis);
 
 
 app.use((req, res, next) => {
-  
   console.log("Inside Middleware....");
   next();
 });
@@ -26,6 +26,13 @@ app.use((req, res, next) => {
 // User.drop();
 
 //connecting database and start the server
+(async()=>{
+    await sequelize.query('SET FOREIGN_KEY_CHECKS = 0');
+await sequelize.sync({ force: true });
+await sequelize.query('SET FOREIGN_KEY_CHECKS = 1');
+
+})
+
 sequelize
   .authenticate()
   .then((result) => {
