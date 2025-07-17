@@ -25,16 +25,16 @@ Blog.init(
   }
 );
 
-Blog.associate = (models) => {
-  Blog.belongsTo(models.User, {
-    foreignKey: "author_id",
-    as:"author",
-  });
+// Blog.associate = (models) => {
+//   Blog.belongsTo(models.User, {
+//     foreignKey: "author_id",
+//     as:"author",
+//   });
 
-  Blog.hasMany(models.BlogImage, {
-    foreignKey: "blog_id",
-    as: "images",
-  });
-};
+//   Blog.hasMany(models.BlogImage, {
+//     foreignKey: "blog_id",
+//     as: "images",
+//   });
+// };
 
 module.exports = Blog;

@@ -1,6 +1,7 @@
 const responder = require("../../utils/reponder");
 const BlogServices = require("../services/BlogServices");
 const BlogImagesServices = require("../services/BlogImagesServices");
+const BlogResponse=require("../resources/BlogResponse")
 
 exports.generateBlog = async (request, response) => {
   try {
@@ -37,7 +38,10 @@ exports.generateBlog = async (request, response) => {
 exports.getAllBlogs = async (request, response, next) => {
   try {
     const allblog = await BlogServices.getAllBlogs();
-    return responder(response, false, "BLOG_FETCHED", allblog);
+    console.log("allblog",allblog)
+    return responder(response, false, "BLOG_FETCHED",
+     allblog
+    );
   } catch (err) {
     return responder(response, false, "FALIURE", {}, 400);
   }

@@ -1,4 +1,5 @@
 const Blog = require("../models/Blog");
+const BlogImage = require("../models/BlogImages");
 exports.createNewBlog = async (
   title,
   content,
@@ -22,5 +23,13 @@ exports.createNewBlog = async (
 };
 
 exports.getAllBlogs = async() => {
-   return await Blog.findAll({limit:10});
+   return await Blog.findAll({
+       include:{
+          model:BlogImage,
+          as:'Images'
+      }
+   });
 };
+
+
+
