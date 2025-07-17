@@ -28,7 +28,7 @@ Blog.init(
 Blog.associate = (models) => {
   Blog.belongsTo(models.User, {
     foreignKey: "author_id",
-    as: "author",
+    as:"author",
   });
 
   Blog.hasMany(models.BlogImage, {

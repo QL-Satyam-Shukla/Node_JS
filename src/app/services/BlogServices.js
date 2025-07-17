@@ -1,6 +1,4 @@
 const Blog = require("../models/Blog");
-const BlogImages=require("../models/BlogImages");
-
 exports.createNewBlog = async (
   title,
   content,
