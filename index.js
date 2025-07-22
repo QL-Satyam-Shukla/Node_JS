@@ -13,12 +13,10 @@ require("./association");
 app.use(express.json());
 app.use(apis);
 
-
 app.use((req, res, next) => {
   console.log("Inside Middleware....");
   next();
 });
-
 
 // User.sync({ force: true });
 // User.sync({alter:true})
@@ -26,12 +24,9 @@ app.use((req, res, next) => {
 // User.drop();
 
 //connecting database and start the server
-(async()=>{
-    await sequelize.query('SET FOREIGN_KEY_CHECKS = 0');
-await sequelize.sync({ force: true });
-await sequelize.query('SET FOREIGN_KEY_CHECKS = 1');
-
-})
+// (async()=>{
+// await sequelize.sync({ force: true });
+// })
 
 sequelize
   .authenticate()
@@ -47,9 +42,9 @@ sequelize
     console.log("error", err.message);
   });
 
-  sequelize.sync({ alter: false }) // or force: true for development (but it drops tables)
+sequelize
+  .sync({ alter: false }) // or force: true for development (but it drops tables)
   .then(() => {
     console.log("All models were synchronized successfully.");
   })
   .catch((err) => console.error("Failed to sync DB:", err));
-

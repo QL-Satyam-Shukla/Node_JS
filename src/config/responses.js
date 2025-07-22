@@ -19,9 +19,21 @@ module.exports = {
   PASS_EXIST:"Please Try with Different Password",
   PASS_CHANGED:"Password changed now you can login with the updated password",
   PASS_NOT_CHANGED:"Password not changed",
-  NOT_RIGTHS:"You Have Not Enough Rights",
+  NO_RIGTHS:"You Do Have Not Enough Rights",
   BLOG_CREATED:"Blog created successfully",
   BLOIG_NOT_CREATED:"Error while creating blog",
   BLOG_FETCHED:"BLog fetched Successfully",
-  PROFILE_NOT_CREATED:"Error while creating profile"
-};
+  PROFILE_NOT_CREATED:"Error while creating profile",
+  BLOG_NOT_FOUND:"No blogs found for this id",
+  PUBLISH_ERROR:"Error while publishing blog",
+  BLOG_PUBLISH:"Blog published successfully",
+  TOPIC_CREATE_ERROR:"Error While Creating Topic",
+  TOPIC_CREATED:"Topic created successfully",
+  TOPIC_FETCH:"Topic fetch successfully",
+  ERROR_TOPIC_FETCH:"Error while fetching topic",
+  TOPIC_DELETE:"Topic delete successfully",
+  ERROR_TOPIC_DELETE:"Error while delete topic",
+  ERROR_TOPIC_UPDATE:"Error while update topic",
+  TOPIC_UPDATE:"Topic update successfully",
+  TOPIC_NOT_PRESENT:"Topic not present for this id"
+}

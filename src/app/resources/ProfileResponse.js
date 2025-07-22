@@ -7,11 +7,11 @@ class ProfileResponse extends Resource {
       role: this.role || '',
       email:this.email || "",
       account_status:this.account_status || '',
-      bio:this.profile.bio || '',
-      profile_picture_url:this.profile.profile_picture_url || '',
-      website:this.profile.website || '',
-      location:this.profile.location || '',
-       birthdate:this.profile.birthdate || '',
+      bio:this.UserProfile.bio || '',
+      profile_picture_url:this.UserProfile.profile_picture_url || '',
+      website:this.UserProfile.website || '',
+      location:this.UserProfile.location || '',
+      birthdate:this.UserProfile.birthdate || '',
     }
   }
 }

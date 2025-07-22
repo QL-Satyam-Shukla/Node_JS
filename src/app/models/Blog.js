@@ -13,7 +13,7 @@ Blog.init(
     summary: { type: DataTypes.STRING(500), allowNull: true },
     tags: { type: DataTypes.STRING(255), allowNull: true },
     read_time: { type: DataTypes.INTEGER, defaultValue: 0 },
-    category: { type: DataTypes.STRING(100), allowNull: true },
+    topic_id:{type:DataTypes.NUMBER,allowNull:false}
   },
   {
     sequelize,
