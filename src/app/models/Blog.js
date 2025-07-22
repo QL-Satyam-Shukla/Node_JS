@@ -13,7 +13,7 @@ Blog.init(
     summary: { type: DataTypes.STRING(500), allowNull: true },
     tags: { type: DataTypes.STRING(255), allowNull: true },
     read_time: { type: DataTypes.INTEGER, defaultValue: 0 },
-    category: { type: DataTypes.STRING(100), allowNull: true },
+    topic_id:{type:DataTypes.NUMBER,allowNull:false}
   },
   {
     sequelize,
@@ -25,16 +25,16 @@ Blog.init(
   }
 );
 
-Blog.associate = (models) => {
-  Blog.belongsTo(models.User, {
-    foreignKey: "author_id",
-    as:"author",
-  });
+// Blog.associate = (models) => {
+//   Blog.belongsTo(models.User, {
+//     foreignKey: "author_id",
+//     as:"author",
+//   });
 
-  Blog.hasMany(models.BlogImage, {
-    foreignKey: "blog_id",
-    as: "images",
-  });
-};
+//   Blog.hasMany(models.BlogImage, {
+//     foreignKey: "blog_id",
+//     as: "images",
+//   });
+// };
 
 module.exports = Blog;

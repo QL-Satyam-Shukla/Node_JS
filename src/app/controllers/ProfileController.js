@@ -6,7 +6,6 @@ exports.profileDetails = async (request, response, next) => {
   const {id}=request.user;
   try {
     const user = await ProfileServices.getUserByID(id);
-    console.log("userprofile", user);
     if (!user) {
       return responder(response, false, "USER_NOT_FOUND", {}, 400);
     }
@@ -17,6 +16,7 @@ exports.profileDetails = async (request, response, next) => {
       await new ProfileResponse(user).exec()
     );
   } catch (err) {
+    console.log(err)
     return responder(response, false, "INV_TOKEN", {}, 400);
   }
 };

@@ -8,17 +8,15 @@ const http = require("http");
 const app = express();
 const server = http.createServer(app);
 const port = 4000;
+require("./association");
 
 app.use(express.json());
 app.use(apis);
 
-
 app.use((req, res, next) => {
-  
   console.log("Inside Middleware....");
   next();
 });
-
 
 // User.sync({ force: true });
 // User.sync({alter:true})
@@ -26,6 +24,10 @@ app.use((req, res, next) => {
 // User.drop();
 
 //connecting database and start the server
+// (async()=>{
+// await sequelize.sync({ force: true });
+// })
+
 sequelize
   .authenticate()
   .then((result) => {
@@ -40,9 +42,9 @@ sequelize
     console.log("error", err.message);
   });
 
-  sequelize.sync({ alter: false }) // or force: true for development (but it drops tables)
+sequelize
+  .sync({ alter: false }) // or force: true for development (but it drops tables)
   .then(() => {
     console.log("All models were synchronized successfully.");
   })
   .catch((err) => console.error("Failed to sync DB:", err));
-

@@ -40,16 +40,8 @@ User.init(
     tableName: "users",
     timestamps: true,
     createdAt: "created_at",
-    updatedAt: false,
+     updatedAt: false 
   }
-  
 );
-
- User.associate = (models) => {
-    User.hasMany(models.Blog, {
-      foreignKey: "author_id",
-      as: "blogs",
-    });
-  };
 
 module.exports = User;
